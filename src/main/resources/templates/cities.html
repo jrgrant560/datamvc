@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Cities Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Cities</h1>
+    <div th:if="${!cities.empty}">
+        <table>
+            <tr>
+                <th>City Id</th>
+                <th>City Name</th>
+                <th>Country Name</th>
+                <th>Last Update</th>
+            </tr>
+            <tr th:each="city : ${cities}">
+                <td th:text="${city.city_id}">City Id</td>
+                <td th:text="${city.city}">City Name</td>
+                <td th:text="${city.country_id}">Country Id</td>
+                <td th:text="${city.last_update}">Last Update</td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${cities.empty}">
+        <h3>No cities found!</h3>
+    </div>
+</body>
+</html>
